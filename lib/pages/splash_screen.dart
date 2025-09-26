@@ -1,3 +1,5 @@
+// Dibuat oleh Farid Novian
+
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:hello_world/pages/login_page.dart';
@@ -80,70 +82,91 @@ class _SplashScreenState extends State<SplashScreen>
             ],
           ),
         ),
-        child: Center(
-          child: FadeTransition(
-            opacity: _fadeAnimation,
-            child: ScaleTransition(
-              scale: _scaleAnimation,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // Logo
-                  Image.asset(
-                    "assets/images/logo.png",
-                    height: 120,
-                  ),
-                  const SizedBox(height: 20),
-
-                  // Teks utama
-                  SlideTransition(
-                    position: _slideAnimation,
-                    child: const Text(
-                      "Pusat Pembelajaran Terpadu",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: "Poppins",
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 1.2,
+        child: Stack(
+          children: [
+            Center(
+              child: FadeTransition(
+                opacity: _fadeAnimation,
+                child: ScaleTransition(
+                  scale: _scaleAnimation,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // Logo
+                      Image.asset(
+                        "assets/images/logo.png",
+                        height: 120,
                       ),
-                    ),
-                  ),
-                  SlideTransition(
-                    position: _slideAnimation,
-                    child: const Text(
-                      "Kampus UNESA 5",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: "Poppins",
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 1.2,
+                      const SizedBox(height: 20),
+
+                      // Teks utama
+                      SlideTransition(
+                        position: _slideAnimation,
+                        child: const Text(
+                          "Pusat Pembelajaran Terpadu",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: "Poppins",
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1.2,
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-
-                  const SizedBox(height: 10),
-
-                  // ✅ Slogan dengan animasi slide
-                  SlideTransition(
-                    position: _sloganSlideAnimation,
-                    child: const Text(
-                      "Satu Langkah Didepan!",
-                      style: TextStyle(
-                        color: Colors.white70,
-                        fontSize: 18,
-                        fontStyle: FontStyle.italic,
+                      SlideTransition(
+                        position: _slideAnimation,
+                        child: const Text(
+                          "Kampus UNESA 5",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: "Poppins",
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1.2,
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
 
-                  const SizedBox(height: 30),
-                  const CircularProgressIndicator(color: Colors.white),
-                ],
+                      const SizedBox(height: 10),
+
+                      // ✅ Slogan dengan animasi slide
+                      SlideTransition(
+                        position: _sloganSlideAnimation,
+                        child: const Text(
+                          "Satu Langkah Didepan!",
+                          style: TextStyle(
+                            color: Colors.white70,
+                            fontSize: 18,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 30),
+                      const CircularProgressIndicator(color: Colors.white),
+                    ],
+                  ),
+                ),
               ),
             ),
-          ),
+            // ✅ Teks nama pembuat di bagian bawah
+            Positioned(
+              bottom: 30,
+              left: 0,
+              right: 0,
+              child: FadeTransition(
+                opacity: _fadeAnimation,
+                child: const Text(
+                  "Dibuat oleh Farid Novian",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 14,
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
